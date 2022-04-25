@@ -1,0 +1,87 @@
+.post_generator {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+.post_container {
+  background-color: transparent;
+  margin: 1em 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post_container figure{
+  position: relative;
+  height: 300px;
+  width: 300px;
+  overflow: hidden;
+  border: 1px solid #000;
+}
+
+.post_container figure img {
+  width: 100%;
+  height: 100%;
+  transition: all 500ms ease-out;
+}
+
+.post_container figure .capa {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(97, 97, 97, 0.83);
+  transition: all 500ms ease-out;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+}
+
+.post_container figure:hover > .capa{
+  opacity: 1;
+  visibility: visible;
+}
+
+.capa{
+  height:100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.capa h1{
+  width:100%;
+  text-align: center;
+  font-size: 30px;
+  padding: .1em;
+}
+
+.genres_container{
+  width: 100%;
+  margin: 0 1em 1em 1em;
+  align-self: end;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.genres_container p{
+  margin: 0;
+}
+
+/*
+
+.post_container p, .post_container h1 {
+  position: relative;
+}
+
+.post_container h1 {
+
+}
+
+.post_container p {
+
+}
+*/

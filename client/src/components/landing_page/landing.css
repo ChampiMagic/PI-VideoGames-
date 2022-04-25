@@ -1,0 +1,38 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("https://store-images.s-microsoft.com/image/apps.31822.13887153653991815.ff91bbac-8b76-4183-9b0c-68e41bcd6948.5015025d-3360-407a-8c41-6423f1e8dd55?mode=scale&q=90&h=1080&w=1920");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container {
+  text-decoration: none;
+  width: 75%;
+  height: 20%;
+}
+
+.button {
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, rgb(0, 136, 157));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 5px solid rgb(0, 136, 157);
+  transition-duration: 350ms;
+  transition-property: background, border, font-weight;
+  font-size: 45px;
+  letter-spacing: 1em;
+}
+
+.button:hover {
+  background-color: rgba(0, 136, 157, 0.59);
+  border-color: #fff;
+  font-weight: bold;
+}

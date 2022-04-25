@@ -1,0 +1,128 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4d5c9d;
+  width: 100%;
+  height: 7em;
+  box-sizing: border-box;
+}
+
+.nav_list {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.nav_list li {
+  margin: .6em 2.4em;
+  list-style-type: none;
+  font-size: 35px;
+  transition: 350ms;
+  width: 4em;
+  height: 1.5em;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.nav_list li:hover {
+  background-color: #3e4b82;
+}
+
+/*       SUB-LIST     */
+
+.nav_list-sub {
+  display: none;
+  list-style-type: none;
+}
+
+
+
+.sub_list, .sub_list li{
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.nav_list li:hover .nav_list-sub {
+  display: block;
+  position: absolute;
+  margin-top: 7px;
+  margin-left: -15px;
+  background-color: #4d5c9d;
+  z-index: 1;
+}
+
+.nav_list li:hover .sub_list{
+  display: block;
+  margin: 10px;
+}
+
+.nav_list li:hover .sub_list, .sub_list li{
+  width: 150px;
+  border-bottom: 1px dotted #fff;
+  background: transparent;
+  border-radius: 0;
+  text-align: center;
+}
+
+.nav_list li:hover .sub_list, .sub_list li:last-child{
+  border-bottom: none;
+}
+
+.sub_list li:hover{
+  background: transparent;
+  color: #829aff;
+}
+
+
+/*       SUB-LIST 2      */
+
+.nav_list-sub2 {
+  display: none;
+}
+
+.sub2_list, .sub2_list li {
+  padding: 0;
+  color: #000;
+}
+
+.sub_list-genres:hover .nav_list-sub2 {
+  display: block;
+  position: absolute;
+  margin-top: -40px;
+  margin-left: 150px;
+  padding: 0 10px;
+  background-color: #4d5c9d;
+  border: 1px #000 solid;
+  border-top: none;
+}
+
+.sub_list-genres:hover .sub2_list, .sub2_list li {
+  width: 200px;
+}
+
+#extend {
+  height: 100px;
+}
+
+
+
+
+/*     FORMS      */
+
+.nav_form {
+  margin-right: 2em;
+}
+
+.nav_form input {
+  border-radius: 999px;
+  height: 2em;
+  width: 20em;
+  font-size: 20px;
+  background-color: rgb(74, 74, 74);
+  outline: none;
+  border: none;
+  color: #fff;
+  padding-left: 12px;
+}

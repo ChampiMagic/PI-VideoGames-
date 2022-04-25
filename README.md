@@ -155,13 +155,13 @@ __IMPORTANTE__: No está permitido utilizar los filtrados, ordenamientos y pagin
 
 - [ ] __GET /videogames__:
   - Obtener un listado de los videojuegos
-  - Debe devolver solo los datos necesarios para la ruta principal
+  - Debe devolver solo los datos necesarios para la ruta principal --------(no se a que se refiere)
 - [ ] __GET /videogames?name="..."__:
   - Obtener un listado de las primeros 15 videojuegos que contengan la palabra ingresada como query parameter
   - Si no existe ningún videojuego mostrar un mensaje adecuado
 - [ ] __GET /videogame/{idVideogame}__:
   - Obtener el detalle de un videojuego en particular
-  - Debe traer solo los datos pedidos en la ruta de detalle de videojuego
+  - Debe traer solo los datos pedidos en la ruta de detalle de videojuego --------(no se a que se refiere)
   - Incluir los géneros asociados
 - [ ] __GET /genres__:
   - Obtener todos los tipos de géneros de videojuegos posibles
@@ -169,6 +169,14 @@ __IMPORTANTE__: No está permitido utilizar los filtrados, ordenamientos y pagin
 - [ ] __POST /videogame__:
   - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de videojuego por body
   - Crea un videojuego en la base de datos
+  
+    Nombre
+    Descripción
+    Fecha de lanzamiento
+    Rating
+    Posibilidad de seleccionar/agregar varios géneros
+    Posibilidad de seleccionar/agregar varias plataformas
+    Botón/Opción para crear un nuevo videojuego
 
 
 #### Testing
