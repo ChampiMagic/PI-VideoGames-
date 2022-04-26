@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import './specific.css';
+import s from './specific.module.css';
 
 export default function Specific() {
 
@@ -34,15 +34,15 @@ if(loading){
 
 console.log(game.released)
   return(
-    <div className='card_body'>
-      <div className="card_container">
+    <div className={s.card_body}>
+      <div className={s.card_container}>
         <h1>{game.name}</h1>
         <h3>Rating: {game.rating}</h3>
         <h4>Released: {game.released}</h4>
         <p><b>Description:</b> {description} </p>
-        <div className="card_platforms">Plataformas: {id.id.length < 15? game.platforms.map( (platform) => (<p key={platform.platform.id}>{platform.platform.name},</p>) ) : <p key={id}>{game.platforms}</p>}</div>
-        <div className="card_genres">Generos: {game.genres.map( (genre) => (<p key={genre.name}>{genre.name},</p>) )}</div>
-        <div className="card_img"><img src={game.background_image} alt={game.name}/></div>
+        <div className={s.card_platforms}>Plataformas: {id.id.length < 15? game.platforms.map( (platform) => (<p key={platform.platform.id}>{platform.platform.name},</p>) ) : <p key={id}>{game.platforms}</p>}</div>
+        <div className={s.card_genres}>Generos: {game.genres.map( (genre) => (<p key={genre.name}>{genre.name},</p>) )}</div>
+        <div className={s.card_img}><img src={game.background_image} alt={game.name}/></div>
       </div>
     </div>
   )

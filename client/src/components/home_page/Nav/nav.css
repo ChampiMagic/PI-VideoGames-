@@ -1,6 +1,6 @@
 .nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   background-color: #4d5c9d;
   width: 100%;
@@ -125,4 +125,18 @@
   border: none;
   color: #fff;
   padding-left: 12px;
+}
+
+.create_button {
+  outline: none;
+  border: none;
+  padding:  .5em 1.5em;
+  font-size: 20px;
+  background: rgb(8, 8, 8);
+  color: rgb(191, 36, 0);
+}
+
+.create_button:hover {
+  box-shadow: 0 0 7px 4px rgba(139, 8, 8, 1);
+  font-weight: bold;
 }

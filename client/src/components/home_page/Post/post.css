@@ -11,6 +11,12 @@
   margin: 1em 0;
   display: flex;
   flex-wrap: wrap;
+
+}
+
+.post_container > a, .post_container > a:visited {
+  color: rgb(142, 153, 77);
+  text-decoration: none;
 }
 
 .post_container figure{

@@ -1,34 +1,40 @@
 import {React, useState, useEffect} from 'react';
 import axios from 'axios';
-import { Link } from "react-router-dom";
 import Body from './body/body.jsx';
 import Nav from './Nav/nav.jsx'
+import { connect, useDispatch, useSelector } from 'react-redux';
+import {getPosts, setShowedPosts } from '../../actions/index.js';
+
+
 
 
 export default function Home() {
 
-  const [searchValue, setSearchValue] = useState();
-  const [indexAlfa, setIndexAlfa] = useState(false);
-  const [showedPosts, setShowedPosts] = useState([]);
-  const [posts, setPosts] = useState([]);
-  const [dbPosts, setdbPosts] = useState([]);
-  const [loading, setLoading] = useState(false);
+const dispatch = useDispatch()
+const posts = useSelector(state => state.posts)
+const postsDB = useSelector(state => state.postsDB)
+const showedPosts = useSelector(state => state.showedPosts)
+
+
+  const [refresh, setRefresh] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(15);
 
- useEffect(() => {
-   const fetchPosts = async () => {
-     setLoading(true);
-     const res = await axios.get('http://localhost:3001/videogames');
-     const unificator = [...res.data[0], ...res.data[1]];
-     setPosts(unificator);
-     setShowedPosts(unificator);
-     setdbPosts(res.data[0])
-     setLoading(false);
-   }
+  const reRender = () => {
+    refresh? setRefresh(false) : setRefresh(true);
+  }
 
-   fetchPosts();
- }, []);
+ useEffect(() => {
+
+
+   dispatch(getPosts())
+
+
+
+ }, [dispatch]);
+
+
+
 
 //GET currents posts
 const indexOfLastPost = currentPage * postsPerPage;
@@ -41,13 +47,13 @@ const paginate = (pageNumber) => setCurrentPage(pageNumber);
 //"Creados" y "Todos" Filter
 const callDb = () => {
   setCurrentPage(1)
-  setShowedPosts(dbPosts)
+  dispatch(setShowedPosts(postsDB))
 
 };
 const callAll = () => {
 
   setCurrentPage(1)
-  setShowedPosts(posts)
+  dispatch(setShowedPosts(posts))
 
 };
 
@@ -66,19 +72,19 @@ const callByGenre = (genres) => {
     }
   }
   if(newShowedPosts.length){
-    setShowedPosts(newShowedPosts);
-  } 
+    dispatch(setShowedPosts(newShowedPosts));
+  }
 
 }
 
 //"Alfabetico" y "rating" Order
-const callAlfa = (boolean) => {
+const callAlfa = (ternary) => {
 
-  setIndexAlfa(boolean);
+
 
   let temporal = showedPosts;
 
-    if(boolean){
+    if(ternary){
       temporal.sort((a, b) => {
         let aT = a.name.toLowerCase();
         let bT = b.name.toLowerCase();
@@ -90,7 +96,7 @@ const callAlfa = (boolean) => {
         } else { return 0 }
 
       } )
-    } else if(!boolean){
+    } else if(!ternary){
       temporal.sort((a, b) => {
         let aT = a.name.toLowerCase();
         let bT = b.name.toLowerCase();
@@ -105,22 +111,23 @@ const callAlfa = (boolean) => {
     }
 
 
-  setShowedPosts(temporal);
+  dispatch(setShowedPosts(temporal));
+  reRender()
 
 }
 
-const callRating = (boolean) => {
+const callRating = (ternary) => {
 
-  setIndexAlfa(boolean);
+
 
   let temporal = showedPosts;
 
-    if(boolean){
+    if(ternary){
       temporal.sort((a, b) => {
 
         return a.rating - b.rating;
       } )
-    } else if(!boolean){
+    } else if(!ternary){
       temporal.sort((a, b) => {
       return b.rating - a.rating;
 
@@ -128,25 +135,27 @@ const callRating = (boolean) => {
     }
 
 
-  setShowedPosts(temporal);
+  dispatch(setShowedPosts(temporal));
+  reRender()
 
 }
 
 //"Seach" function
 const handleSubmit = async (event) => {
   event.preventDefault();
+  setCurrentPage(1)
  let value = event.target["0"].value;
  const res = await axios.get(`http://localhost:3001/videogames/?name=${value}`);
    const unificador = [...res.data[0], ...res.data[1]];
    console.log(unificador);
-   setShowedPosts(unificador);
+   dispatch(setShowedPosts(unificador));
 }
 
 
   return (
     <div>
-      <Nav callDb={callDb} callAll={callAll} callAlfa={callAlfa} indexAlfa={indexAlfa} callRating={callRating} callByGenre={callByGenre} handleSubmit={handleSubmit}/>
-      <Body posts={showedPosts} currentPosts={currentPosts} loading={loading} postsPerPage={postsPerPage} paginate={paginate}/>
+      <Nav callDb={callDb} callAll={callAll} callAlfa={callAlfa}  callRating={callRating} callByGenre={callByGenre} handleSubmit={handleSubmit}/>
+      <Body posts={showedPosts} currentPosts={currentPosts}  postsPerPage={postsPerPage} paginate={paginate}/>
     </div>
   )
 }

@@ -2,21 +2,16 @@ import {React, useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
 import "./nav.css";
 import { connect } from 'react-redux';
-import { loadingON, loadingOFF } from '../../../actions/index.js';
+import { ternaryON, ternaryOFF } from '../../../actions/index.js';
 
 
-function Nav({loading, loadingON, loadingOFF, callDb, callAll, callAlfa, indexAlfa, callRating, callByGenre, search, handleChange, handleSubmit, searchValue}) {
+function Nav({ternary, ternaryON, ternaryOFF, callDb, callAll, callAlfa, callRating, callByGenre, search, handleChange, handleSubmit, searchValue}) {
 
 
 
 
 
- let boolean = indexAlfa;
- const setBoolean = () => {
-   if(boolean) {
-     boolean = false;
-   } else {boolean = true}
- }
+
 
 
   return(
@@ -59,14 +54,17 @@ function Nav({loading, loadingON, loadingOFF, callDb, callAll, callAlfa, indexAl
           <div className="nav_list-sub">
             <ul className="sub_list">
               <li onClick={() => {
-                    setBoolean();
-                callAlfa(boolean);
+
+                ternary? ternaryOFF() : ternaryON();
+                callAlfa(ternary);
 
                  }
               } className="sub_list-alphabetic">Alfabetico</li>
               <li onClick={() => {
-                setBoolean();
-            callRating(boolean);
+
+                ternary? ternaryOFF() : ternaryON();
+                callRating(ternary);
+
               }} className="sub_list-rating">Rating</li>
             </ul>
           </div>
@@ -76,7 +74,7 @@ function Nav({loading, loadingON, loadingOFF, callDb, callAll, callAlfa, indexAl
           <input  type="search" placeholder="Buscar por nombre"></input>
         </form>
         <Link to="/home/create">
-        <button>Crear Juego</button>
+        <button className="create_button">Crear Juego</button>
         </Link>
     </nav>
 
@@ -84,7 +82,7 @@ function Nav({loading, loadingON, loadingOFF, callDb, callAll, callAlfa, indexAl
 }
 
 const mapStateToProps = (state) => ({
-  loading: state.loading,
+  ternary: state.ternary,
 });
 
-export default connect(mapStateToProps, { loadingON, loadingOFF })(Nav)
+export default connect(mapStateToProps, { ternaryON, ternaryOFF })(Nav)

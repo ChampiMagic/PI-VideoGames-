@@ -43,15 +43,20 @@ router.get('/videogames',  async (req, res) => {
   if(name) {
     try {
 
-      let filter = bdGames.filter(e => e.name.includes(name))
-
-      const result = await fetch(`https://api.rawg.io/api/games?key=38b50206c79a4b3aaa3aa94762fa6e6a&page_size=${15 - filter.length}&search=${name}`)
-      const json = await result.json();
+      let db = bdGames.filter(e => e.name.includes(name))
+      let filter = db.slice(0, 15)
       let filterAPI = [];
-      for(const element of json.results){
-        let {id, name, genres, background_image, rating} = element;
-        filterAPI.push({id, name, genres, background_image, rating})
+
+      if(!filter.length > 14) {
+        const result = await fetch(`https://api.rawg.io/api/games?key=38b50206c79a4b3aaa3aa94762fa6e6a&page_size=${15 - filter.length}&search=${name}`)
+        const json = await result.json();
+
+        for(const element of json.results){
+          let {id, name, genres, background_image, rating} = element;
+          filterAPI.push({id, name, genres, background_image, rating})
+        }
       }
+
 
       if(!filter.length && !filterAPI.length) {
         res.status(404).send('No se encontro ningun titulo que coincida con la busqueda')
@@ -134,6 +139,7 @@ router.post('/videogame', async (req, res) => {
 
   const genresBD = await Genre.findAll();
   let genresArr = [];
+
 
     for(const element of genres){
       let temporal = [];

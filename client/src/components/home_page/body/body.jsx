@@ -1,15 +1,15 @@
-import {React, useState, useEffect} from 'react';
-import { Link } from "react-router-dom";
 import "./body.css";
 import Post from '../Post/post.jsx';
 import Pagination from '../pagination/pagination.jsx';
+import { connect } from 'react-redux';
+import { loadingON, loadingOFF } from '../../../actions/index.js';
 
 
 
 
 
-export default function Body( {posts, currentPosts, loading, postsPerPage, paginate} ) {
-
+function Body( {loading, posts, currentPosts, postsPerPage, paginate} ) {
+console.log(loading)
 
   return (
     <div className="body">
@@ -19,3 +19,9 @@ export default function Body( {posts, currentPosts, loading, postsPerPage, pagin
   );
 
 }
+
+const mapStateToProps = (state) => ({
+  loading: state.loading,
+});
+
+export default connect(mapStateToProps, { loadingON, loadingOFF })(Body)
