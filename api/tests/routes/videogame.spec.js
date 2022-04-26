@@ -7,6 +7,11 @@ const { Videogame, conn } = require('../../src/db.js');
 const agent = session(app);
 const videogame = {
   name: 'Super Mario Bros',
+  description: "disparate esta",
+  release: "03/1997",
+  rating: 3,
+  platforms: "PC",
+  genres:["RPG"]
 };
 
 describe('Videogame routes', () => {

@@ -78,7 +78,7 @@ router.get('/videogames',  async (req, res) => {
       let {id, name, genres, background_image, rating} = element;
       apiGames.push({id, name, genres, background_image, rating})
     }
-    res.json([bdGames, apiGames])
+    res.status(200).json([bdGames, apiGames])
 
   }
 
