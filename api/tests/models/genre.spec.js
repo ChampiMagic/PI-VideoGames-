@@ -26,7 +26,7 @@ describe('Test BD', () => {
 
       describe('Try add genre', () => {
        it('Should add a new genre', async () => {
-          const genre = await Genre.create({id: 576, name:"Gore"});
+          const genre = await Genre.create({id: 576, name:"Gore"}); 
           expect(genre.dataValues).to.eql({id: 576, name:"Gore"})
         });
         it('Should add a new genre', async () => {

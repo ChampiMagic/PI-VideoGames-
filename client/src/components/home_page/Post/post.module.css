@@ -1,3 +1,21 @@
+@keyframes loading {
+  0% {color: #000}
+  50% {color:rgb(93, 235, 192)}
+  100% {color: #000}
+}
+
+.loading {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  text-align: center;
+  font-size: 50px;
+  letter-spacing: 3px;
+  animation-name: loading;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
 .post_generator {
   width: 80%;
   display: flex;

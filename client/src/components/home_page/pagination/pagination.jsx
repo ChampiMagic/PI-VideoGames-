@@ -1,5 +1,5 @@
 import React from 'react';
-import './pagination.css'
+import s from './pagination.module.css'
 
 
 export default function Pagination({ postsPerPage, totalPosts, paginate}) {
@@ -12,7 +12,7 @@ export default function Pagination({ postsPerPage, totalPosts, paginate}) {
 
   return(
     <>
-      <div className='pagination_container'>
+      <div className={s.pagination_container}>
         {pageNumbers.map(number => (
           <button key={number} onClick={() => paginate(number)}>
             {number}

@@ -5,10 +5,38 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   justify-content: center;
   align-items: center;
   background-color: rgb(43, 43, 43);
+}
+
+.comeBack {
+  text-decoration: none;
+  color: #000;
+  position: absolute;
+  top: 14px;
+  left: 30px;
+}
+
+.comeBack:visited {
+  color: #000;
+}
+
+.comeBack_Bottom {
+  background: rgb(242, 242, 242);
+  border-radius: 10px;
+  padding: .2em 1em;
+  font-size: 25px;
+  font-weight: bolder;
+  letter-spacing: 3px;
+  transition: 100ms;
+}
+
+.comeBack_Bottom:hover {
+  background: radial-gradient(circle, rgb(88, 194, 204), rgb(0, 131, 144));
+  border: rgb(0, 131, 144) solid 3px;
+  box-shadow: 0px 0px 20px 0px rgb(255, 255, 255);
 }
 
 .form {
@@ -82,20 +110,40 @@
 
 .genres {
   font-size: 21px;
-  width: 45%;
+  width: 70%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  gap: 12px;
   padding-bottom: 1em;
 }
 
 .genres > div {
   display: flex;
   align-items: center;
+
 }
 
 .genres > div > input {
   margin-left: .5em;
+}
+
+.rating_container {
+  width: 45%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.print_rating {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  margin-bottom: -20px;
+}
+
+.rating_container > input {
+  width:100%;
 }
 
 .error_label {
@@ -108,6 +156,16 @@
   font-weight: bold;
 }
 
-.error{
-  background: rgb(207, 182, 99);
+.error {
+  border: black solid 10px;
+}
+
+.error_label_genre {
+  position: absolute;
+  right:  22em;
+  margin-top: 13em;
+  font-size: 15px;
+  letter-spacing: 1.7px;
+  color: rgb(222, 33, 33);
+  font-weight: bold;
 }

@@ -1,5 +1,5 @@
 import {React, useState, useEffect} from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import s from './specific.module.css';
 
@@ -22,12 +22,12 @@ useEffect(() => {
   }
 
   axiosPost(id);
-}, [])
+}, [id])
 
 
 if(loading){
   return (
-    <h1>Loading...</h1>
+    <h1 className={s.loading}>Loading...</h1>
   )
 }
   let description = game.description
@@ -35,6 +35,9 @@ if(loading){
 console.log(game.released)
   return(
     <div className={s.card_body}>
+    <Link to="/home" className={s.comeBack}>
+      <bottom className={s.comeBack_Bottom}>Volver</bottom>
+    </Link>
       <div className={s.card_container}>
         <h1>{game.name}</h1>
         <h3>Rating: {game.rating}</h3>

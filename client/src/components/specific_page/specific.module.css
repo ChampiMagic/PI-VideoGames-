@@ -1,3 +1,21 @@
+@keyframes loading {
+  0% {color: #000}
+  50% {color:rgb(235, 93, 166)}
+  100% {color: #000}
+}
+
+.loading {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  text-align: center;
+  font-size: 50px;
+  letter-spacing: 3px;
+  animation-name: loading;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
 .card_body{
   height:100vh;
   width: 100vw;
@@ -6,7 +24,37 @@
   align-items: center
 }
 
+.comeBack {
+  text-decoration: none;
+  color: #000;
+  position: absolute;
+  top: 14px;
+  left: 30px;
+}
+
+.comeBack:visited {
+  color: #000;
+}
+
+.comeBack_Bottom {
+  background: rgb(242, 242, 242);
+  border-radius: 10px;
+  padding: .2em 1em;
+  font-size: 25px;
+  font-weight: bolder;
+  letter-spacing: 3px;
+  transition: 100ms;
+}
+
+.comeBack_Bottom:hover {
+  background: radial-gradient(circle, rgb(88, 194, 204), rgb(0, 131, 144));
+  border: rgb(0, 131, 144) solid 3px;
+  box-shadow: 0px 0px 20px 0px rgb(255, 255, 255);
+}
+
 .card_container {
+  position: absolute;
+  left: 15em;
   height: 90%;
   width: 80%;
   display: flex;
@@ -47,6 +95,7 @@
   text-align: center;
   padding: 2em 1em;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
 .card_container > p > b{
@@ -62,6 +111,7 @@
   color: #fff;
   text-align: center;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .card_container > .card_platforms > p{
@@ -76,6 +126,7 @@
   color: #fff;
   text-align: center;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .card_container > .card_genres > p{

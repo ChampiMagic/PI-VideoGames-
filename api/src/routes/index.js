@@ -44,10 +44,10 @@ router.get('/videogames',  async (req, res) => {
     try {
 
       let db = bdGames.filter(e => e.name.includes(name))
-      let filter = db.slice(0, 15)
+      let filter = db.slice(0, 15);
       let filterAPI = [];
 
-      if(!filter.length > 14) {
+      if(!(filter.length > 14)) {
         const result = await fetch(`https://api.rawg.io/api/games?key=38b50206c79a4b3aaa3aa94762fa6e6a&page_size=${15 - filter.length}&search=${name}`)
         const json = await result.json();
 
@@ -59,9 +59,10 @@ router.get('/videogames',  async (req, res) => {
 
 
       if(!filter.length && !filterAPI.length) {
+
         res.status(404).send('No se encontro ningun titulo que coincida con la busqueda')
       } else {
-        res.json([filter, filterAPI])
+        res.status(200).json([filter, filterAPI])
       }
 
 

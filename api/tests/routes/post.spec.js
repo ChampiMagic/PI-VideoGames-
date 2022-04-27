@@ -1,5 +1,5 @@
 const session = require('supertest-session');
-const app = require('../../src/routes/index'); 
+const app = require('../../src/routes/index');
 
 const agent = session(app);
 
@@ -24,12 +24,12 @@ describe('Test de POST', () => {
 
   it('responds with 400', () => {agent.post('/videogames')
   .send(game[1])
-  .expect(201)
+  .expect(400)
   })
 
   it('responds with 400', () => {agent.post('/videogames')
   .send(game[2])
-  .expect(201)
+  .expect(400)
   })
 
 
