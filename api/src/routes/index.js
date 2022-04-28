@@ -184,6 +184,79 @@ router.post('/videogame', async (req, res) => {
 
 
 
+// router.put('/update', async (req, res) => {
+//   const { id, name, description, released, rating, platforms, genres, img_url} = req.body;
+//
+//   const genresBD = await Genre.findAll();
+//   let genresArr = [];
+//
+//
+//     for(const element of genres){
+//       let temporal = [];
+//       for(const element2 of genresBD){
+//         if(element2.name === element){
+//           temporal.push(element2);
+//           break;
+//         }
+//       }
+//       genresArr.push(temporal[0])
+//
+//     }
+//
+//     const game = await Videogame.findOne({where: {id: id}})
+//
+//   try {
+//
+//     await Videogame.update({
+//
+//       name: name,
+//       description: description,
+//       released: released,
+//       rating: rating,
+//       platforms: platforms,
+//       img_url: img_url,
+//
+//     }, {
+//       where: {
+//         id: id,
+//       }
+//     });
+//
+//     game.addGenres(genresArr)
+//
+//     res.status(200).send(game)
+//
+//   } catch(err) {
+//     res.status(400).send(err)
+//   }
+//
+// })
+//
+//
+// router.delete('/delete', async (req, res) => {
+//   const { id } = req.body;
+//
+//
+//   try {
+//
+//     await Videogame.destroy({where: {id: id}})
+//     res.status(200).send("Juego borrado")
+//
+//
+//
+//   } catch(err) {
+//     res.status(400).send(err)
+//   }
+//
+// })
+
+
+
+
+
+
+
+
 
 
 

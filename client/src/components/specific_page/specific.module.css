@@ -14,15 +14,15 @@
   animation-name: loading;
   animation-duration: 1s;
   animation-iteration-count: infinite;
+  z-index: 1;
 }
 
-.card_body{
-  height:100vh;
+.card_body {
   width: 100vw;
-  display:flex;
-  justify-content: center;
-  align-items: center
+  height: 100vh;
 }
+
+
 
 .comeBack {
   text-decoration: none;
@@ -30,6 +30,7 @@
   position: absolute;
   top: 14px;
   left: 30px;
+  z-index: 1;
 }
 
 .comeBack:visited {
@@ -47,10 +48,134 @@
 }
 
 .comeBack_Bottom:hover {
-  background: radial-gradient(circle, rgb(88, 194, 204), rgb(0, 131, 144));
-  border: rgb(0, 131, 144) solid 3px;
-  box-shadow: 0px 0px 20px 0px rgb(255, 255, 255);
+  background: radial-gradient(circle, #bdbd81, #cdcd94);
+  border: #a3a36e solid 3px;
+  box-shadow: 0px 0px 20px 0px #a3a36e;
 }
+
+.card_container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.card_container > figure {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.card_container > figure > img {
+  width: 100%;
+  height: 100%;
+  transition: all 500ms ease-out;
+}
+
+.capa {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.53);
+  transition: all 500ms ease-out;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.capa > h1{
+  width:100%;
+  text-align: center;
+  font-size: 50px;
+  padding: .1em;
+  color: #dddda0;
+  text-decoration: underline;
+}
+
+.capa > h3 {
+  margin: 0;
+  width: 100%;
+  font-size: 35px;
+  text-align: center;
+  color: #cfcfcf
+}
+
+.capa > h4 {
+  position: relative;
+  top: -1em;
+  margin: 0;
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+  color: #B87333;
+}
+
+.capa > p {
+  position: relative;
+  top: -3em;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  padding: 2em 1em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.capa > p > i {
+  border: #cfcfcf solid 1px;
+  box-shadow: 3px 3px 1px #cfcfcf;
+  padding: .5em 1em;
+  width: 100%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 15px;
+}
+.capa > p > b{
+  width: 100%;
+  font-size: 25px;
+  text-decoration: underline;
+}
+
+.capa > .card_platforms {
+  font-size: 20px;
+  width: 100%;
+  width: 100%;
+  margin: .2em;
+  margin-left: 2em;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.capa > .card_platforms > p{
+  margin: 0 0 0 .7em;
+}
+
+
+.capa > .card_genres {
+  font-size: 20px;
+  width: 100%;
+  margin: .2em;
+  margin-left: 2em;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.capa > .card_genres > p{
+  margin: 0 0 0 .7em;
+}
+
+
+/*
 
 .card_container {
   position: absolute;
@@ -144,3 +269,4 @@
   width: 100%;
   height: 100%;
 }
+*/

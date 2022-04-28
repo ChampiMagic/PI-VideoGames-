@@ -121,7 +121,7 @@ console.log(e.target.name)
 
     <div className={s.form_container}>
       <Link to="/home" className={s.comeBack}>
-        <bottom className={s.comeBack_Bottom}>Volver</bottom>
+        <button className={s.comeBack_Bottom}>Volver</button>
       </Link>
       <form  className={s.form} onSubmit={handleSubmit}>
         <div className={s.input_container}>

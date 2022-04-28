@@ -30,23 +30,44 @@ if(loading){
     <h1 className={s.loading}>Loading...</h1>
   )
 }
-  let description = game.description
 
-console.log(game.released)
+function matchReg(str) {
+        let reg = /<\/?.+?\/?>/g;
+        return str.replace(reg, '');
+    }
+
+
   return(
     <div className={s.card_body}>
     <Link to="/home" className={s.comeBack}>
-      <bottom className={s.comeBack_Bottom}>Volver</bottom>
+      <button className={s.comeBack_Bottom}>Volver</button>
     </Link>
-      <div className={s.card_container}>
-        <h1>{game.name}</h1>
-        <h3>Rating: {game.rating}</h3>
-        <h4>Released: {game.released}</h4>
-        <p><b>Description:</b> {description} </p>
-        <div className={s.card_platforms}>Plataformas: {id.id.length < 15? game.platforms.map( (platform) => (<p key={platform.platform.id}>{platform.platform.name},</p>) ) : <p key={id}>{game.platforms}</p>}</div>
-        <div className={s.card_genres}>Generos: {game.genres.map( (genre) => (<p key={genre.name}>{genre.name},</p>) )}</div>
-        <div className={s.card_img}><img src={game.background_image} alt={game.name}/></div>
-      </div>
+    <div className={s.card_container}>
+      <figure>
+        <img src={game.background_image} alt={game.name} />
+        <div className={s.capa}>
+          <h1>{game.name}</h1>
+          <h3>Rating: {game.rating}</h3>
+          <h4>Released: {game.released}</h4>
+          <p><b>DESCRIPCION:</b> <i>{matchReg(game.description)}</i> </p>
+          <div className={s.card_platforms}><b>Plataformas:</b> {id.id.length < 15? game.platforms.map( (platform) => (<p key={platform.platform.id}>{platform.platform.name},</p>) ) : <p key={id}>{game.platforms}</p>}</div>
+          <div className={s.card_genres}><b>Generos:</b> {game.genres.map( (genre) => (<p key={genre.name}>{genre.name},</p>) )}</div>
+        </div>
+      </figure>
+    </div>
+
     </div>
   )
 }
+
+
+
+
+/*<div className={s.card_container}>
+  <h1>{game.name}</h1>
+  <h3>Rating: {game.rating}</h3>
+  <h4>Released: {game.released}</h4>
+  <p><b>Description:</b> {description} </p>
+  <div className={s.card_platforms}>Plataformas: {id.id.length < 15? game.platforms.map( (platform) => (<p key={platform.platform.id}>{platform.platform.name},</p>) ) : <p key={id}>{game.platforms}</p>}</div>
+  <div className={s.card_genres}>Generos: {game.genres.map( (genre) => (<p key={genre.name}>{genre.name},</p>) )}</div>
+</div>*/

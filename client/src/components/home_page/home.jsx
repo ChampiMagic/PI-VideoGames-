@@ -42,7 +42,10 @@ const indexOfFirstPost = indexOfLastPost - postsPerPage;
 const currentPosts = showedPosts.slice(indexOfFirstPost, indexOfLastPost);
 
 //Change page
-const paginate = (pageNumber) => setCurrentPage(pageNumber);
+const paginate = (pageNumber) => {
+  setCurrentPage(pageNumber)
+  window.scrollTo(100, 100);
+};
 
 //"Creados" y "Todos" Filter
 const callDb = () => {
@@ -155,7 +158,7 @@ const handleSubmit = async (event) => {
   return (
     <div>
       <Nav callDb={callDb} callAll={callAll} callAlfa={callAlfa}  callRating={callRating} callByGenre={callByGenre} handleSubmit={handleSubmit}/>
-      <Body posts={showedPosts} currentPosts={currentPosts}  postsPerPage={postsPerPage} paginate={paginate}/>
+      <Body posts={showedPosts} currentPosts={currentPosts}  postsPerPage={postsPerPage} paginate={paginate} page={currentPage}/>
     </div>
   )
 }
