@@ -22,24 +22,22 @@ describe('Test BD', () => {
   });
 
     describe('Create Genre', () => {
-      beforeEach(() => { conn.sync({force: true}) });
+      beforeEach(() => { conn.sync({alter: true}) });
 
       describe('Try add genre', () => {
        it('Should add a new genre', async () => {
-          const genre = await Genre.create({id: 576, name:"Gore"}); 
-          expect(genre.dataValues).to.eql({id: 576, name:"Gore"})
+          const genre = await Genre.create({ name:"Gore"});
+          expect(genre.dataValues).to.eql({ name:"Gore", id: genre.dataValues.id})
         });
         it('Should add a new genre', async () => {
-          const genre2 = await Genre.create({name: "MMORPG", id: 678})
-          expect(genre2.dataValues).to.eql({name: "MMORPG", id: 678})
+          const genre2 = await Genre.create({name: "MMORPG", })
+          expect(genre2.dataValues).to.eql({name: "MMORPG",id: genre2.dataValues.id})
         });
-        it('Should refuse to add a genre', async (done) => {
+        it('Should refuse to add a genre', async () => {
           try {
             await Genre.create({})
           } catch (error) {
-
-            done(Error(error));
-
+            expect(error)
           }
 
         });

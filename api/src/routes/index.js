@@ -60,7 +60,7 @@ router.get('/videogames',  async (req, res) => {
 
       if(!filter.length && !filterAPI.length) {
 
-        res.status(404).send('No se encontro ningun titulo que coincida con la busqueda')
+        res.status(404).send('NameNotFound')
       } else {
         res.status(200).json([filter, filterAPI])
       }
@@ -116,7 +116,6 @@ router.get('/genres', async (req, res) => {
 
         json.results.forEach( e => {
         Genre.create({
-            id: e.id,
             name: e.name,
           })
         })
@@ -180,6 +179,21 @@ router.post('/videogame', async (req, res) => {
 
 
 
+router.post("/add", (req, res) => {
+
+try {
+  Genre.create({
+    name: req.body.name
+  })
+
+  res.status(200).send("genero creado")
+
+} catch(err) {res.status(400).send(error)}
+
+
+
+})
+
 
 
 
@@ -233,22 +247,22 @@ router.post('/videogame', async (req, res) => {
 // })
 //
 //
-// router.delete('/delete', async (req, res) => {
-//   const { id } = req.body;
-//
-//
-//   try {
-//
-//     await Videogame.destroy({where: {id: id}})
-//     res.status(200).send("Juego borrado")
-//
-//
-//
-//   } catch(err) {
-//     res.status(400).send(err)
-//   }
-//
-// })
+router.delete('/delete', async (req, res) => {
+  const { id } = req.body;
+
+
+  try {
+
+    await Videogame.destroy({where: {id: id}})
+    res.status(200).send("Juego borrado")
+
+
+
+  } catch(err) {
+    res.status(400).send(err)
+  }
+
+})
 
 
 

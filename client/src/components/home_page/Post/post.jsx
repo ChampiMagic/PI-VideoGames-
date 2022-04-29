@@ -7,9 +7,9 @@ export default function Post({posts, loading}) {
 
   if(loading){
     return(
-      <>
+      <div className={s.loading_container}>
         <h2 className={s.loading}>Loading...</h2>
-      </>
+      </div>
     )
   }
 

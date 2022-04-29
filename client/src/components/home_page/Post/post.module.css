@@ -21,6 +21,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background: rgba(0, 0, 0, 0.46);
 }
 
 
@@ -29,11 +30,10 @@
   margin: 1em 0;
   display: flex;
   flex-wrap: wrap;
-
 }
 
 .post_container > a, .post_container > a:visited {
-  color: rgb(142, 153, 77);
+  color: #B9F2FF;
   text-decoration: none;
 }
 
@@ -43,12 +43,13 @@
   width: 300px;
   overflow: hidden;
   border: 1px solid #000;
+  border: solid 2px #d2cfcf;
 }
 
 .post_container figure img {
   width: 100%;
   height: 100%;
-  transition: all 500ms ease-out;
+  transition: all 250ms ease-out;
 }
 
 .post_container figure .capa {
@@ -56,7 +57,7 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(97, 97, 97, 0.83);
+  background-color: rgba(0, 0, 0, 0.69);
   transition: all 500ms ease-out;
   opacity: 0;
   visibility: hidden;
@@ -76,19 +77,33 @@
 
 
 .capa h1{
+  position: relative;
+  top:25%;
   width:100%;
   text-align: center;
   font-size: 30px;
   padding: .1em;
+  transition:1s;
 }
 
 .genres_container{
+  position: relative;
+  bottom:25%;
   width: 100%;
   margin: 0 1em 1em 1em;
   align-self: end;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  transition:1s;
+}
+
+.post_container figure:hover > .capa h1 {
+  top:0;
+}
+
+.post_container figure:hover > .capa > .genres_container{
+  bottom: 0;
 }
 
 .genres_container p{

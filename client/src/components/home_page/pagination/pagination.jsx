@@ -6,11 +6,12 @@ export default function Pagination({ postsPerPage, totalPosts, paginate, page}) 
 
   const pageNumbers = [];
 
+
   const changer = (directioner) => {
     if(directioner) {
       if(page < pageNumbers.length) {
         paginate(page + 1)
-      } 
+      }
     } else {
       if(page > 1){
         paginate(page - 1)
@@ -25,13 +26,13 @@ export default function Pagination({ postsPerPage, totalPosts, paginate, page}) 
   return(
     <>
       <div className={s.pagination_container}>
-      <button className={s.prev_button} onClick={() => changer(false)}>Prev</button>
+      <button className={s.prev_button} onClick={() => changer(false)}> {"<"} </button>
         {pageNumbers.map(number => (
-          <button key={number} onClick={() => paginate(number)}>
+          <button key={number} onClick={() => paginate(number)} className={s.number_button}>
             {number}
           </button>
         ))}
-        <button className={s.next_button} onClick={() => changer(true)}>Next</button>
+        <button className={s.next_button} onClick={() => changer(true)}> {">"} </button>
       </div>
     </>
   )

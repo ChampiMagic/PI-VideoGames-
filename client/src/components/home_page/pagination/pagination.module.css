@@ -6,5 +6,19 @@
 }
 
 .pagination_container button{
-  margin: 0 .3em;
+  margin: 0 .6em;
+  background: transparent;
+  color: rgb(255, 255, 255);
+  border: none;
+  outline: none;
+  font-size: 25px;
+}
+
+.pagination_container button:hover{
+  color: #6bbdd0;
+}
+
+
+.number_button:focus{
+  color: #6bbdd0;
 }

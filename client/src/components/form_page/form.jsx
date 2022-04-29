@@ -125,7 +125,7 @@ console.log(e.target.name)
       </Link>
       <form  className={s.form} onSubmit={handleSubmit}>
         <div className={s.input_container}>
-          <label>Nombre</label>
+          <label className={s.title}>Nombre</label>
           <input type="text"
                 name="name"
                 value={input.name}
@@ -137,7 +137,7 @@ console.log(e.target.name)
         </div>
 
         <div className={s.input_container}>
-          <label>Descripcion</label>
+          <label className={s.title}>Descripcion</label>
           <input type="text"
                 name="description"
                 value={input.description}
@@ -149,9 +149,11 @@ console.log(e.target.name)
         </div>
 
         <div className={s.input_container}>
-          <label>Fecha de lanzamiento</label>
+          <label className={s.title}>Fecha de lanzamiento</label>
           <input type="date"
                 name="release"
+                min="2003-01-01"
+                max="2022-04-30"
                 value={input.release}
                 onChange={workOnChange}
                 className={error.release && s.error}
@@ -161,7 +163,7 @@ console.log(e.target.name)
         </div>
 
         <div className={s.input_container}>
-          <label>Rating</label>
+          <label className={s.title}>Rating</label>
           <div className={s.rating_container}>
           <div className={s.print_rating}><p>0</p><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p></div>
           <input type="range" min="0" max="5" step="1"
@@ -172,11 +174,11 @@ console.log(e.target.name)
 
           ></input>
           </div>
-          {error.rating && <label className={s.error_label}>{error.rating}</label>}
+          {error.rating && <label className={s.error_label_rating}>{error.rating}</label>}
         </div>
 
         <div className={s.input_container}>
-          <label>Plataformas</label>
+          <label className={s.title}>Plataformas</label>
         <div className={s.platforms}>
           <div>
             <label>PS4</label>
@@ -210,7 +212,7 @@ console.log(e.target.name)
         </div>
 
         <div className={s.input_container}>
-          <label>Generos</label>
+          <label className={s.title}>Generos</label>
           <div className={s.genres}>
 
           <div>
